@@ -17,13 +17,22 @@ public class Directorio {
 	public void setContactos(ArrayList<Contacto> contactos) {
 		this.contactos = contactos;
 	}
-
-	public void agreagarContacto(Contacto contacto) {
-		contactos.add(contacto);
+// metodo mejorado 
+	public boolean agreagarContacto(Contacto contacto) {
+		Contacto existente=buscarContacto(contacto.getCelular());
+		if(existente== null) {
+			contactos.add(contacto);
+			return true;
+			
+		}else {
+			return false;
+		}
+		
 
 	}
 
 	public int obtenerCantidadContacto() {
+		
 		int cantidad;
 		cantidad = contactos.size();
 		return cantidad;
@@ -44,6 +53,17 @@ public class Directorio {
 		Contacto c=contactos.get(posicion);
 		String numero=c.getCelular();
 		return numero;
+		
+	}
+	public Contacto buscarContacto(String numero) {
+		for(int i=0;i<contactos.size();i++) {
+			Contacto c = contactos.get(i);
+			if(c.getCelular().equals(numero)) {
+				return c;
+			}
+			
+		}
+		return null;
 		
 	}
 
