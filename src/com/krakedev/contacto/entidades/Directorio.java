@@ -3,11 +3,10 @@ package com.krakedev.contacto.entidades;
 import java.util.ArrayList;
 
 public class Directorio {
-ArrayList<Contacto> contactos;
-	
+	ArrayList<Contacto> contactos;
 
-	public Directorio(){
-		contactos=new ArrayList<Contacto>();
+	public Directorio() {
+		contactos = new ArrayList<Contacto>();
 
 	}
 
@@ -18,22 +17,34 @@ ArrayList<Contacto> contactos;
 	public void setContactos(ArrayList<Contacto> contactos) {
 		this.contactos = contactos;
 	}
-	public void  agreagarContacto(Contacto contacto) {
+
+	public void agreagarContacto(Contacto contacto) {
 		contactos.add(contacto);
-		
+
 	}
+
 	public int obtenerCantidadContacto() {
 		int cantidad;
-		cantidad=contactos.size();	
+		cantidad = contactos.size();
 		return cantidad;
 	}
-	
-	
-	
-	
-	
+
+	public Contacto obtenerContacto(int posicion) {
+		return contactos.get(posicion);
+
+	}
+
+	public void imprimirContactos() {
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto contacto = contactos.get(i);
+			System.out.println("Nombre: " + contacto.getNombre());
+		}
+	}
+	public String recuperarNumero(int posicion) {
+		Contacto c=contactos.get(posicion);
+		String numero=c.getCelular();
+		return numero;
+		
+	}
 
 }
-
-
-
