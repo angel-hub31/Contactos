@@ -66,5 +66,36 @@ public class Directorio {
 		return null;
 		
 	}
+	
+	
+		public  ArrayList<Contacto>buscarContactosCoincidencia(String subcadena){
+			ArrayList<Contacto> encontrados=new ArrayList<Contacto>();
+		for(int i=0;i<contactos.size();i++) {
+			Contacto c = contactos.get(i);
+			if(c.getNombre().startsWith(subcadena)) {
+				encontrados.add(c);
+			}
+			
+		}
+		return encontrados;
+	}
+
+		
+		
+	
+	public boolean eliminarContacto(String numero) {
+		Contacto encontrado = buscarContacto(numero);
+		if(encontrado== null) {
+			return false;
+			
+		}else {
+			contactos.remove(encontrado);
+			return true;
+			
+		}
+		
+		
+		
+	}
 
 }
